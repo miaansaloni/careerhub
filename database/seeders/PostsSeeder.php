@@ -16,8 +16,13 @@ class PostsSeeder extends Seeder
         for ($i = 0; $i < 30; $i++) {
             Post::create([
                 'title' => fake()->words(rand(3, 10), true),
-                'body' => fake()->words(rand(50, 100), true),
+                'description' => fake()->words(rand(50, 100), true),
                 'img' => fake()->imageUrl(640, 480),
+                'requirements' => fake()->words(rand(50, 100), true),
+                'location' => fake()->words(rand(1, 6), true),
+                'contract' => fake()->words(rand(1, 3), true),
+                'shifts' => fake()->words(rand(1, 2), true),
+                'salary' => fake()->words(rand(1, 2), true),
                 'user_id' => rand(1, 5),
             ]);
         }

@@ -25,8 +25,13 @@ class PostController extends Controller
         $data = $request->all();
         $newPost = new Post();
         $newPost->title = $data['title'];
-        $newPost->body = $data['body'];
+        $newPost->description = $data['description'];
         $newPost->img = $data['img'];
+        $newPost->requirements = $data['requirements'];
+        $newPost->location = $data['location'];
+        $newPost->contract = $data['contract'];
+        $newPost->shifts = $data['shifts'];
+        $newPost->salary = $data['salary'];
         $newPost->user_id = $request->user()->id;
         $newPost->save();
         return redirect()->route('posts.show', ['id' => $newPost->id])->with('creation_success', $newPost);
@@ -47,8 +52,13 @@ class PostController extends Controller
         $post = Post::findOrFail($id);
         if ($request->user()->id !== $post->user_id) abort(401);
         $post->title = $data['title'];
-        $post->body = $data['body'];
+        $post->description = $data['description'];
         $post->img = $data['img'];
+        $post->requirements = $data['requirements'];
+        $post->location = $data['location'];
+        $post->contract = $data['contract'];
+        $post->shifts = $data['shifts'];
+        $post->salary = $data['salary'];
         $post->update();
         return redirect()->route('posts.index')->with('update_success', $post);
     }

@@ -7,32 +7,15 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Jobs
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{ route('posts.index') }}">Job list</a></li>
-                        <li><a class="dropdown-item" href="{{ route('posts.create') }}">Add a job</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('about') }}">About us</a>
-                </li>
-                @auth
-                    <li class="nav-item">
-                        <a href="{{ route('dashboard') }}" class="nav-link">
-                            Dashboard
-                        </a>
-                    </li>
-                @endauth
-            </ul>
+                <li class="nav-item"><a class="nav-link" href="{{ route('posts.index') }}">JOB OFFERS</a></li>
+                <li class="nav-item"><a href="{{ route('home') }}" class="nav-link">HOME</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">ABOUT US</a></li>
 
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+                @auth
+                    <li class="nav-item"><a class="nav-link" href="{{ route('posts.create') }}">POST A JOB OFFER</a></li>
+                @endauth
+
+            </ul>
 
             <ul class="navbar-nav mb-2 mb-lg-0">
                 @auth
@@ -42,26 +25,26 @@
                             {{ Auth::user()->name }}
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Profile</a></li>
+                            <li><a class="dropdown-item" href="{{ route('profile.edit') }}">PROFILE</a></li>
                             <li>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
-                                    <button class="dropdown-item">Logout</button>
+                                    <button class="dropdown-item">LOGOUT</button>
                                 </form>
                             </li>
                         </ul>
                     </li>
                 @else
-                    <li class="nav-item">
-                        <a href="{{ route('login') }}" class="nav-link">
-                            Log in
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('register') }}" class="nav-link">
-                            Register
-                        </a>
-                    </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        EMPLOYERS' SECTION
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ route('login') }}">LOG IN</a></li>
+                        <li ><a href="{{ route('register') }}" class="dropdown-item">REGISTER</a></li>
+                    </ul>
+                </li>
                 @endauth
             </ul>
         </div>

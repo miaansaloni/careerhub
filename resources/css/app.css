@@ -1,3 +1,11 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
+
+.post-body {
+    height: 5rem;
+}
+
+.post-body p {
+    flex-grow: 1;
+}
